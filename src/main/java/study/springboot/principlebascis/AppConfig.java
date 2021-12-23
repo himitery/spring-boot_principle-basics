@@ -1,7 +1,7 @@
 package study.springboot.principlebascis;
 
 import study.springboot.principlebascis.discount.DiscountPolicy;
-import study.springboot.principlebascis.discount.FixDiscountPolicy;
+import study.springboot.principlebascis.discount.RateDiscountPolicy;
 import study.springboot.principlebascis.member.MemberRepository;
 import study.springboot.principlebascis.member.MemberService;
 import study.springboot.principlebascis.member.MemberServiceImpl;
@@ -24,6 +24,6 @@ public class AppConfig {
 	}
 
 	private DiscountPolicy discountPolicy() {
-		return new FixDiscountPolicy();
+		return new RateDiscountPolicy();
 	}
 }
