@@ -11,8 +11,7 @@ import study.springboot.principlebasics.member.MemberServiceImpl;
 import study.springboot.principlebasics.order.OrderServiceImpl;
 
 public class ConfigurationSingletonTest {
-
-
+	
 	@Test
 	void configurationTest() {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -30,5 +29,13 @@ public class ConfigurationSingletonTest {
 
 		assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
 		assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
+	}
+
+	@Test
+	void configurationDeep() {
+		ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+		AppConfig bean = ac.getBean(AppConfig.class);
+
+		System.out.println("bean = " + bean.getClass());
 	}
 }
