@@ -1,6 +1,7 @@
 package study.springboot.principlebasics.scan.filter;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -20,7 +21,7 @@ public class ComponentFilterAppConfigTest {
 		BeanA beanA = ac.getBean("beanA", BeanA.class);
 		assertThat(beanA).isNotNull();
 
-		org.junit.jupiter.api.Assertions.assertThrows(NoSuchBeanDefinitionException.class, () -> {
+		assertThrows(NoSuchBeanDefinitionException.class, () -> {
 			ac.getBean("beanB", BeanB.class);
 		});
 	}
